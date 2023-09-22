@@ -7,13 +7,22 @@
   &__heroBox {
     cursor: pointer;
 
-    &--active {
-      position: absolute;
-    }
     &__image {
       width: 115px;
       height: 460px;
       position: relative;
     }
+  }
+}
+.heroInfo {
+  z-index: 100;
+  background-color: $purple;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 0;
+  &__boxImage {
+    width: 100px;
+    position: relative;
   }
 }
