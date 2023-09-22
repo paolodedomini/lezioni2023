@@ -1,9 +1,11 @@
+import Navbar from "../components/navbar"
 function LayoutPage({ children }) {
-
     return (
-        <main>
-            {children}
-        </main>
+        <>
+            <Navbar />
+            <main>
+                {children}
+            </main></>
     )
 
 }
