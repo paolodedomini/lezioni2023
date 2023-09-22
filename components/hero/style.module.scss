@@ -1,0 +1,19 @@
+.heroContainer {
+  display: flex;
+  max-width: 1163px;
+  justify-content: space-evenly;
+  margin: 4rem auto 0 auto;
+  position: relative;
+  &__heroBox {
+    cursor: pointer;
+
+    &--active {
+      position: absolute;
+    }
+    &__image {
+      width: 115px;
+      height: 460px;
+      position: relative;
+    }
+  }
+}

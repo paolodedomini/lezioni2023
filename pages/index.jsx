@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Hero from '../components/hero'
 
 export default function Home() {
   return (
-    <h1>test</h1>
-
+    <>
+      <Hero />
+    </>
   )
 }
