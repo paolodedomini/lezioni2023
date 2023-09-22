@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 180 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-870,-64)">
+        <g transform="matrix(1,0,0,2.89907,0,0)">
+            <g transform="matrix(0.83061,0,0,0.286509,171.07,-7.9715)">
+                <g>
+                    <g>
+                        <g transform="matrix(0.655344,0,0,0.655344,398.196,72.5774)">
+                            <g transform="matrix(72,0,0,72,850.917,105)">
+                            </g>
+                            <text x="698.865px" y="105px" style="font-family:'BodoniModa-Regular', 'Bodoni Moda';font-size:72px;">Lux</text>
+                        </g>
+                        <g transform="matrix(1,0,0,1,-150.291,4.9997)">
+                            <g transform="matrix(47.1848,0,0,47.1848,1193.49,136.389)">
+                            </g>
+                            <text x="1079px" y="136.389px" style="font-family:'BodoniModaRoman-Bold', 'Bodoni Moda';font-size:47.185px;fill:rgb(157,45,54);">Wine</text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,0.344938,-1.5,0)">
+                <path d="M873,103L1050,103" style="fill:none;stroke:rgb(138,138,138);stroke-width:0.9px;"/>
+            </g>
+        </g>
+    </g>
+</svg>

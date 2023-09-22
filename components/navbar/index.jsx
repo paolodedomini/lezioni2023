@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import style from './style.module.scss';
-import { RxHamburgerMenu } from 'react-icons/rx'
+import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 
 const data = [
     { name: 'prodotti', path: '/prodotti' },
@@ -15,16 +17,37 @@ function Navbar() {
     return (
         <>
             <nav className={style.navBar}>
+                <div className={style.navBar__boxLogo}>
+                    <Image src="/ui/logo.svg" alt="Luxwine Logo" width={180} height={40} />
+                </div>
+
                 <div onClick={() => { setMenuOpen(!menuOpen) }} className={style.navBar__menuIcon}>
-                    <RxHamburgerMenu /></div>
-                <ul className={`${style.navBar__mainNav} ${menuOpen && style['navBar__mainNav--open']}`}>
-                    {data.map((item, index) => (
-                        <li key={index}>
-                            <Link href={item.path}>{item.name}</Link>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+                    <RxHamburgerMenu />
+                </div>
+
+                <AnimatePresence>
+                    {menuOpen && <motion.div
+                        className={style.navBar__mainNav}
+                        initial={{ opacity: 0, left: '50vw' }}
+                        animate={{ opacity: 1, left: 0 }}
+                        exit={{ opacity: 0, left: '50vw' }}
+                        transition={{ duration: .5, ease: 'easeInOut' }}
+                    >
+                        <div onClick={() => { setMenuOpen(false) }} className={style.navBar__mainNav__closeBtn}>
+                            <RxCross1 />
+                        </div>
+                        <ul className={style.navBar__mainNav__navList}>
+                            {
+                                data.map((item, index) => (
+                                    <li className={style.navBar__mainNav__navList__listItem} key={index}>
+                                        <Link href={item.path}>{item.name}</Link>
+                                    </li>
+                                ))
+                            }
+                        </ul></motion.div>}
+                </AnimatePresence>
+
+            </nav >
         </>
     )
 }
