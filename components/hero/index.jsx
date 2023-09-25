@@ -130,12 +130,13 @@ function Hero() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
+                        transition={{ delay: .5, duration: 1 }}
                     >{data.titolo}</motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        transition={{ delay: .5 }}
+                        transition={{ delay: 1, duration: 1 }}
                     > {data.paragrafo}</motion.p>
                 </div>
             </motion.div ></>)
