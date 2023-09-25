@@ -1,15 +1,37 @@
 .sectionHomeSx {
   display: flex;
   justify-content: flex-end;
-  gap: 4rem;
   align-items: center;
 
   &__boxText {
-    max-width: 600px;
+    flex: 1;
     margin-right: 6rem;
+    margin-left: 6rem;
     h2 {
       font-size: 4rem;
-      margin-bottom: 1rem;
+    }
+    p {
+      line-height: 1.8rem;
+      max-width: 800px;
+    }
+  }
+  img {
+  }
+}
+.sectionHomeDx {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  &__boxText {
+    flex: 1;
+    margin-right: 6rem;
+    margin-left: 6rem;
+    h2 {
+      font-size: 4rem;
+    }
+    p {
+      line-height: 1.8rem;
+      max-width: 800px;
     }
   }
   img {
