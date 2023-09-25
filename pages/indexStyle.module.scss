@@ -1,0 +1,17 @@
+.sectionHomeSx {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4rem;
+  align-items: center;
+
+  &__boxText {
+    max-width: 600px;
+    margin-right: 6rem;
+    h2 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+  }
+  img {
+  }
+}
