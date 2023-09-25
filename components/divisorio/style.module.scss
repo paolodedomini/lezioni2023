@@ -1,0 +1,18 @@
+.divisorio {
+  position: relative;
+  margin: 2rem 0;
+  width: 100%;
+  overflow-x: hidden;
+  hr {
+    width: 2px;
+    height: 100px;
+    position: relative;
+    border: 1px solid #7e3d55;
+    margin: 0 auto;
+  }
+  &__tooltip {
+    display: block;
+    text-align: center;
+    transform: translate(50px, 50px);
+  }
+}
