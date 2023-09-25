@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   margin: 8rem auto 0 auto;
   position: relative;
+
   &__heroBox {
     cursor: pointer;
 
@@ -72,5 +73,21 @@
         }
       }
     }
+  }
+}
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  h2 {
+    color: $lightGrey;
+    font-size: 3rem;
+  }
+  p {
+    margin-top: 1rem;
+    max-width: 800px;
+    text-align: center;
+    font-size: 0.9rem;
   }
 }
