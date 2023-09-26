@@ -72,7 +72,7 @@ function Navbar() {
                                 ))
                             }
                             <li>
-                                <Divisorio />
+                                <Divisorio size={30} />
                                 <SearchField />
                             </li>
                         </ul>

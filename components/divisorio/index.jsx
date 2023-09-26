@@ -1,13 +1,11 @@
 import style from './style.module.scss';
 
-function Divisorio({ tooltip }) {
+function Divisorio({ tooltip, size }) {
 
     return (
         <div className={style.divisorio} >
             {tooltip && <div className={style.divisorio__tooltip}>{tooltip}</div>}
-            <hr />
-
-
+            <hr style={{ height: size ? size : 100 }} />
         </div>
     )
 
