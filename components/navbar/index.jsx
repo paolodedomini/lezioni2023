@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import style from './style.module.scss';
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 
@@ -14,6 +14,13 @@ const data = [
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
 
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+    }, [menuOpen])
     return (
         <>
             <nav className={style.navBar}>
