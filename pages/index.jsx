@@ -17,7 +17,7 @@ const data = {
     },
     {
       name: 'Ferrero',
-      anno: '2010',
+      anno: '2011',
       path: '/prodotti/chianti-classico',
       img: '/immagini-prodotto/ferrero.png',
     },
@@ -29,7 +29,7 @@ const data = {
     },
     {
       name: 'Valpolicella',
-      anno: '2010',
+      anno: '1956',
       path: '/prodotti/chianti-classico',
       img: '/immagini-prodotto/valpolicella.png',
     },
