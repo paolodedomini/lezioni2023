@@ -41,6 +41,13 @@ function Hero() {
     const [active, setActive] = useState(-1)
     const [pos, setPos] = useState({})
 
+    useEffect(() => {
+        if (active != -1) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'unset'
+        }
+    }, [active])
     //se l'elemento è attivo carica la stessa immagine sul box informazioni nella posizione corretta e fa partire l'animazione
 
     const measuredRef = useCallback(node => {
