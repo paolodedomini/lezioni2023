@@ -6,6 +6,22 @@
   margin: 0 auto;
   z-index: 200;
   position: relative;
+  &__searchField {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &__button {
+      display: inline-block;
+      height: 36px;
+    }
+
+    input {
+      height: 36px;
+      border: none;
+      border-radius: 0;
+      background-color: $lightGrey;
+    }
+  }
   &__boxLogo {
     flex: 1;
   }

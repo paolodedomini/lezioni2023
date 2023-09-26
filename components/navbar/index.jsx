@@ -4,12 +4,31 @@ import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
+import { RxMagnifyingGlass } from 'react-icons/rx'
+import Divisorio from '../divisorio';
 
 const data = [
     { name: 'prodotti', path: '/prodotti' },
     { name: 'azienda', path: '/azienda' },
     { name: 'contatti', path: '/contatti' },
 ]
+
+function SearchField() {
+    const [isSearchOpen, setIsSearchOpen] = useState(false)
+
+    return (
+        <div className={style.navBar__searchField}>
+            <div className={style.navBar__searchField__button} onClick={() => { setIsSearchOpen((prev) => !prev) }}>
+                <RxMagnifyingGlass />
+            </div>
+
+
+            <input type="text" placeholder="Cerca" />
+
+
+        </div >
+    )
+}
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -21,6 +40,7 @@ function Navbar() {
             document.body.style.overflow = 'unset'
         }
     }, [menuOpen])
+
     return (
         <>
             <nav className={style.navBar}>
@@ -51,7 +71,13 @@ function Navbar() {
                                     </li>
                                 ))
                             }
-                        </ul></motion.div>}
+                            <li>
+                                <Divisorio />
+                                <SearchField />
+                            </li>
+                        </ul>
+
+                    </motion.div>}
                 </AnimatePresence>
 
             </nav >
