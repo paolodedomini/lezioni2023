@@ -7,6 +7,59 @@ import style from './indexStyle.module.scss'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
+const data = {
+  prodotti: [
+    {
+      name: 'Fermata 125',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/fermata125.png',
+    },
+    {
+      name: 'Ferrero',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/ferrero.png',
+    },
+    {
+      name: 'Syrah',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/syrah.png',
+    },
+    {
+      name: 'Valpolicella',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/valpolicella.png',
+    },
+    {
+      name: 'Chianti Classico',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/fermata125.png',
+    },
+    {
+      name: 'Amarone',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/ferrero.png',
+    },
+    {
+      name: 'Merlot',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/syrah.png',
+    },
+    {
+      name: 'Appassimento',
+      anno: '2010',
+      path: '/prodotti/chianti-classico',
+      img: '/immagini-prodotto/valpolicella.png',
+    }
+  ]
+}
+
 export default function Home() {
   const section1 = useRef(null)
   const section2 = useRef(null)
@@ -19,7 +72,7 @@ export default function Home() {
       <Hero />
       <Divisorio tooltip={'test'} />
       <motion.section className={style.sectionGriglia}>
-        <GrigliaProdotti />
+        <GrigliaProdotti data={data} titolo={'In evidenza'} />
       </motion.section>
       <motion.section ref={section1}
         className={style.sectionHomeDx}
