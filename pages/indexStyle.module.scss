@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
+  margin: 2rem 0;
   &__boxText {
     flex: 1;
     margin-right: 6rem;
@@ -21,7 +21,8 @@
 .sectionHomeDx {
   display: flex;
   align-items: center;
-  gap: 4rem;
+
+  margin: 4rem 0;
   &__boxText {
     flex: 1;
     margin-right: 6rem;
