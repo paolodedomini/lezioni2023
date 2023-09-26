@@ -25,7 +25,7 @@
   top: 0;
   &__backgroundClose {
     width: 100%;
-    background-color: $purple;
+    background-color: $autumn;
     position: fixed;
     height: 100%;
     left: 0;
@@ -41,9 +41,9 @@
       z-index: 51;
     }
     &__boxText {
-      color: #e2bbca;
+      color: $autumn;
       max-width: 650px;
-      background: #5c1e35;
+      background: $autumnDark;
       padding: 3rem 3rem 3rem 6rem;
       margin-left: -50px;
       z-index: 50;
@@ -51,7 +51,7 @@
         font-size: 4rem;
         position: relative;
 
-        color: #c69eb2;
+        color: $autumn;
       }
       h3 {
         margin-top: 0.5rem;
@@ -82,7 +82,7 @@
   align-items: center;
   margin-top: 5rem;
   h2 {
-    color: $lightGrey;
+    color: $autumn;
     font-size: 6rem;
   }
   p {
