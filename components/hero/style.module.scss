@@ -6,13 +6,13 @@
   position: relative;
 
   &__heroBox {
-    cursor: pointer;
-
+    :hover {
+      cursor: url("../../public/ui/cursor.png"), auto;
+    }
     &__image {
       width: 115px;
       height: 460px;
       position: relative;
-      cursor: pointer;
     }
   }
 }

@@ -115,7 +115,7 @@ function Hero() {
                     {
                         data.prodotti.map((item, index) => {
                             return (
-                                <div onClick={() => { setActive(index) }} className={`style.heroContainer__heroBox`} key={index}>
+                                <div onClick={() => { setActive(index) }} className={style.heroContainer__heroBox} key={index}>
                                     <div className={style.heroContainer__heroBox__image} >
                                         <Image src={item.img} alt={item.name} layout="fill" objectFit="cover" />
                                     </div>

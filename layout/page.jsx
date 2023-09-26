@@ -1,11 +1,14 @@
 import Navbar from "../components/navbar"
+import { ScrollerMotion } from 'scroller-motion'
 function LayoutPage({ children }) {
     return (
         <>
-            <Navbar />
-            <main>
-                {children}
-            </main></>
+            <ScrollerMotion>
+                <Navbar />
+                <main>
+                    {children}
+                </main></ScrollerMotion>
+        </>
     )
 
 }
