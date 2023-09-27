@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image'
 import { RxMagnifyingGlass } from 'react-icons/rx'
 import Divisorio from '../divisorio';
+import router from 'next/router';
 
 const data = [
     { name: 'prodotti', path: '/prodotti' },
@@ -38,8 +39,16 @@ function Navbar() {
             document.body.style.overflow = 'hidden'
         } else {
             document.body.style.overflow = 'unset'
+
         }
+
     }, [menuOpen])
+
+    useEffect(() => {
+
+        router.events.on('routeChangeComplete', () => setMenuOpen(false))
+
+    }, [router.events]);
 
     return (
         <>
