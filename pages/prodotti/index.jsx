@@ -57,9 +57,9 @@ const data = {
 
 function Prodotti() {
     return (
-        <div className={style.container}>
+        <div className={style.mainContainer}>
             <h1>Prodotti </h1>
-            <GrigliaProdotti data={data} />
+            <GrigliaProdotti data={data} num={8} />
         </div>
     )
 }
