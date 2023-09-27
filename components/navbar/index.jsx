@@ -45,16 +45,16 @@ function Navbar() {
     }, [menuOpen])
 
     useEffect(() => {
-
         router.events.on('routeChangeComplete', () => setMenuOpen(false))
-
     }, [router.events]);
 
     return (
         <>
             <nav className={style.navBar}>
                 <div className={style.navBar__boxLogo}>
-                    <Image src="/ui/logo.svg" alt="Luxwine Logo" width={180} height={40} />
+                    <Link href="/">
+                        <Image src="/ui/logo.svg" alt="Luxwine Logo" width={180} height={40} />
+                    </Link>
                 </div>
 
                 <div onClick={() => { setMenuOpen(!menuOpen) }} className={style.navBar__menuIcon}>
