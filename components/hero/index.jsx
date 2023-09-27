@@ -6,6 +6,7 @@ import { boxWine, boxText, header, headerP } from './animations'
 const data = {
     titolo: 'Selezione autunnale',
     paragrafo: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard',
+    background: '/immagini-prodotto/autumn.jpg',
     prodotti: [
         {
             name: 'Fermata 125',
@@ -13,6 +14,7 @@ const data = {
             path: '/prodotti/chianti-classico',
             img: '/immagini-prodotto/fermata125.png',
             text: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.'
+
         },
         {
             name: 'Ferrero',
@@ -48,8 +50,8 @@ function Hero() {
             document.body.style.overflow = 'unset'
         }
     }, [active])
-    //se l'elemento è attivo carica la stessa immagine sul box informazioni nella posizione corretta e fa partire l'animazione
 
+    //se l'elemento è attivo carica la stessa immagine sul box informazioni nella posizione corretta e fa partire l'animazione
     const measuredRef = useCallback(node => {
         if (node !== null && active != -1) {
             const position = {
@@ -68,7 +70,7 @@ function Hero() {
                     <div className={style.heroInfo}>
                         <motion.div className={style.heroInfo__backgroundClose}
                             onClick={() => setActive(-1)}
-                            initial={{ opacity: 0, }}
+                            initial={{ opacity: 0, backgroundImage: `url(${data.background})` }}
                             animate={{ opacity: 1, }}
                             exit={{ opacity: 0, }}
                             transition={{ delay: .5, duration: .5, ease: 'easeInOut' }}

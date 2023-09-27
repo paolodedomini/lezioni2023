@@ -26,6 +26,8 @@
   &__backgroundClose {
     width: 100%;
     background-color: $autumn;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: fixed;
     height: 100%;
     left: 0;
@@ -47,6 +49,9 @@
       padding: 3rem 3rem 3rem 6rem;
       margin-left: -50px;
       z-index: 50;
+      header {
+        position: relative;
+      }
       h2 {
         font-size: 4rem;
         position: relative;

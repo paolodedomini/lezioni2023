@@ -29,7 +29,7 @@ const boxText = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { delay: 2, duration: 1 },
+    transition: { delay: 1, duration: 1 },
   },
   exit: { opacity: 0 },
 };
@@ -38,7 +38,7 @@ const header = {
   animate: {
     opacity: 1,
     top: 0,
-    transition: { delay: 3, duration: 1 },
+    transition: { delay: 2, duration: 1 },
   },
   exit: { opacity: 0 },
 };
@@ -48,7 +48,7 @@ const headerP = {
   animate: {
     opacity: 1,
     top: 0,
-    transition: { delay: 3.5, duration: 1 },
+    transition: { delay: 2.5, duration: 1 },
   },
   exit: { opacity: 0 },
 };
