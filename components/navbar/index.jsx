@@ -19,13 +19,11 @@ function SearchField() {
 
     return (
         <div className={style.navBar__searchField}>
-            <div className={style.navBar__searchField__button} onClick={() => { setIsSearchOpen((prev) => !prev) }}>
+            <Link href={'/search'} className={style.navBar__searchField__button} >
                 <RxMagnifyingGlass />
-            </div>
-
+            </Link>
 
             <input type="text" placeholder="Cerca" />
-
 
         </div >
     )
