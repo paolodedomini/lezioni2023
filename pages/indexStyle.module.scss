@@ -1,4 +1,4 @@
-.sectionHomeSx {
+.sectionHome {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -7,6 +7,12 @@
     flex: 1;
     margin-right: 6rem;
     margin-left: 6rem;
+
+    &__text {
+      max-width: 700px;
+      display: block;
+      margin: 0 auto;
+    }
     h2 {
       font-size: 3rem;
     }
