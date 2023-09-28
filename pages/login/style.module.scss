@@ -1,0 +1,7 @@
+.login {
+  max-width: 500px;
+  &__formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+}
