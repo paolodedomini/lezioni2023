@@ -68,9 +68,9 @@ function Hero() {
             <AnimatePresence>
                 {(active != -1) &&
                     <div className={style.heroInfo}>
-                        <motion.div className={style.heroInfo__backgroundClose}
+                        <motion.div style={{ backgroundImage: `url(${data.background})` }} className={style.heroInfo__backgroundClose}
                             onClick={() => setActive(-1)}
-                            initial={{ opacity: 0, backgroundImage: `url(${data.background})` }}
+                            initial={{ opacity: 0 }}
                             animate={{ opacity: 1, }}
                             exit={{ opacity: 0, }}
                             transition={{ delay: .5, duration: .5, ease: 'easeInOut' }}
