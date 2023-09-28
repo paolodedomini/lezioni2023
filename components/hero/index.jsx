@@ -66,20 +66,19 @@ function Hero() {
 
     return (
         <div className={style.hero}>
-
             <motion.div
                 initial={{ opacity: 0, }}
                 animate={{ opacity: 1, }}
                 exit={{ opacity: 0, }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
             >
-                <div className={style.heroContainer}
+                <div className={style.__heroContainer}
                     ref={measuredRef}>
                     {
                         data.prodotti.map((item, index) => {
                             return (
-                                <div onClick={() => { setActive(index) }} className={style.heroContainer__heroBox} key={index}>
-                                    <div className={style.heroContainer__heroBox__image} >
+                                <div onClick={() => { setActive(index) }} className={style.__heroContainer__heroBox} key={index}>
+                                    <div className={style.__heroContainer__heroBox__image} >
                                         <Image src={item.img} alt={item.name} layout="fill" objectFit="cover" />
                                     </div>
                                 </div>
@@ -88,7 +87,7 @@ function Hero() {
                     }
 
                 </div >
-                <div className={style.mainContent}>
+                <div className={style.__mainContent}>
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -105,8 +104,8 @@ function Hero() {
             </motion.div >
             <AnimatePresence>
                 {(active != -1) &&
-                    <div className={style.heroInfo}>
-                        <motion.div style={{ backgroundImage: `url(${data.background})` }} className={style.heroInfo__backgroundClose}
+                    <div className={style.__heroInfo}>
+                        <motion.div style={{ backgroundImage: `url(${data.background})` }} className={style.__heroInfo__backgroundClose}
                             onClick={() => setActive(-1)}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1, }}
@@ -114,14 +113,14 @@ function Hero() {
                             transition={{ delay: .5, duration: .5, ease: 'easeInOut' }}
                         ></motion.div>
                         <motion.div
-                            className={style.heroInfo__boxWine}
+                            className={style.__heroInfo__boxWine}
                             initial="hidden"
                             animate="visible"
                             exit="exit"
                             variants={boxWine(pos)}
                         >
                             <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} />
-                            <motion.div class={style.heroInfo__boxWine__boxText}
+                            <motion.div class={style.__heroInfo__boxWine__boxText}
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
@@ -147,11 +146,10 @@ function Hero() {
                                 </motion.p>
                             </motion.div>
                         </motion.div>
-
                     </div>}
             </AnimatePresence>
 
-        </>)
+        </div>)
 }
 
 export default Hero
