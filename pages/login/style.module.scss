@@ -1,7 +1,19 @@
 .login {
-  max-width: 500px;
-  &__formGroup {
-    display: flex;
-    flex-direction: column;
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  &__box {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    &__formGroup {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      label {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
