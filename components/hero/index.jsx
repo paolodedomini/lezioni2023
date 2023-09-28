@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { boxWine, boxText, header, headerP } from './animations'
+
 const data = {
     titolo: 'Selezione autunnale',
     paragrafo: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard',
@@ -64,55 +65,8 @@ function Hero() {
     }, [active]);
 
     return (
-        <>
-            <AnimatePresence>
-                {(active != -1) &&
-                    <div className={style.heroInfo}>
-                        <motion.div style={{ backgroundImage: `url(${data.background})` }} className={style.heroInfo__backgroundClose}
-                            onClick={() => setActive(-1)}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1, }}
-                            exit={{ opacity: 0, }}
-                            transition={{ delay: .5, duration: .5, ease: 'easeInOut' }}
-                        ></motion.div>
-                        <motion.div
-                            className={style.heroInfo__boxWine}
-                            initial="hidden"
-                            animate="visible"
-                            exit="exit"
-                            variants={boxWine(pos)}
-                        >
+        <div className={style.hero}>
 
-                            <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} />
-                            <motion.div class={style.heroInfo__boxWine__boxText}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                variants={boxText}
-                            >
-                                <motion.header
-                                    initial="initial"
-                                    animate="animate"
-                                    exit="exit"
-                                    variants={header}
-                                >
-                                    <h2>{data.prodotti[active]?.name}</h2>
-                                    <h3>{data.prodotti[active].cantina}</h3>
-                                </motion.header>
-                                <motion.p
-                                    initial="initial"
-                                    animate="animate"
-                                    exit="exit"
-                                    variants={headerP}
-                                >
-                                    <hr />{data.prodotti[active]?.text}
-                                    <Image src="/ui/freccia.svg" alt="arrow" width={400} height={30} />
-                                </motion.p>
-                            </motion.div>
-                        </motion.div>
-
-                    </div>}
-            </AnimatePresence>
             <motion.div
                 initial={{ opacity: 0, }}
                 animate={{ opacity: 1, }}
@@ -148,7 +102,56 @@ function Hero() {
                         transition={{ delay: 1, duration: 1 }}
                     > {data.paragrafo}</motion.p>
                 </div>
-            </motion.div ></>)
+            </motion.div >
+            <AnimatePresence>
+                {(active != -1) &&
+                    <div className={style.heroInfo}>
+                        <motion.div style={{ backgroundImage: `url(${data.background})` }} className={style.heroInfo__backgroundClose}
+                            onClick={() => setActive(-1)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1, }}
+                            exit={{ opacity: 0, }}
+                            transition={{ delay: .5, duration: .5, ease: 'easeInOut' }}
+                        ></motion.div>
+                        <motion.div
+                            className={style.heroInfo__boxWine}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={boxWine(pos)}
+                        >
+                            <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} />
+                            <motion.div class={style.heroInfo__boxWine__boxText}
+                                initial="hidden"
+                                animate="visible"
+                                exit="exit"
+                                variants={boxText}
+                            >
+                                <motion.header
+                                    initial="initial"
+                                    animate="animate"
+                                    exit="exit"
+                                    variants={header}
+                                >
+                                    <h2>{data.prodotti[active]?.name}</h2>
+                                    <h3>{data.prodotti[active].cantina}</h3>
+                                </motion.header>
+                                <motion.p
+                                    initial="initial"
+                                    animate="animate"
+                                    exit="exit"
+                                    variants={headerP}
+                                >
+                                    <hr />{data.prodotti[active]?.text}
+                                    <Image src="/ui/freccia.svg" alt="arrow" width={400} height={30} />
+                                </motion.p>
+                            </motion.div>
+                        </motion.div>
+
+                    </div>}
+            </AnimatePresence>
+
+        </>)
 }
 
 export default Hero

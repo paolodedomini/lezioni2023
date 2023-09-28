@@ -1,1 +1,3 @@
-function test() {}
+function test() {
+  return 122;
+}
