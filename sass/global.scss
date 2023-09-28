@@ -33,3 +33,15 @@ p {
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
 }
+
+input {
+  height: 36px;
+  border: none;
+  border-radius: 20px;
+  background-color: $lightGrey;
+  padding-left: 1rem;
+}
+label {
+  font-family: "Popins", sans-serif;
+  margin-bottom: 0.5rem;
+}
