@@ -70,7 +70,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Divisorio tooltip={'test'} />
+      <Divisorio />
       <motion.section className={style.sectionGriglia}>
         <GrigliaProdotti data={data} titolo={'In evidenza'} />
       </motion.section>
