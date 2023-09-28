@@ -66,12 +66,20 @@ export default function Home() {
   const sectionGriglia = useRef(null)
   const isInview1 = useInView(section1, { once: false })
   const isInview2 = useInView(section2, { once: false })
-  const isInviewGriglia = useInView(sectionGriglia, { once: false })
+  const isInviewGriglia = useInView(sectionGriglia, { once: true })
+
   return (
     <>
       <Hero />
       <Divisorio />
-      <motion.section className={style.sectionGriglia}>
+      <motion.section
+        ref={sectionGriglia}
+        className={style.sectionGriglia}
+        initial={{ opacity: 0, y: 10 }}
+        animate={isInviewGriglia ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+        exit={{ opacity: 0, y: 10 }}
+        transition={{ delay: .3, duration: 1 }}
+      >
         <GrigliaProdotti data={data} titolo={'In evidenza'} />
       </motion.section>
       <motion.section ref={section1}
