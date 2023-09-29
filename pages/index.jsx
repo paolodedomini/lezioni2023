@@ -69,12 +69,12 @@ export default function Home() {
   const isInviewGriglia = useInView(sectionGriglia, { once: true })
 
   return (
-    <>
+    <div className={style.home}>
       <Hero />
       <Divisorio />
       <motion.section
         ref={sectionGriglia}
-        className={style.sectionGriglia}
+        className={style.__sectionGriglia}
         initial={{ opacity: 0, y: 10 }}
         animate={isInviewGriglia ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         exit={{ opacity: 0, y: 10 }}
@@ -83,13 +83,13 @@ export default function Home() {
         <GrigliaProdotti data={data} titolo={'In evidenza'} />
       </motion.section>
       <motion.section ref={section1}
-        className={style.sectionHome}
+        className={style.__sectionHome}
         initial={{ opacity: 0, y: 10 }}
         animate={isInview1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         exit={{ opacity: 0, y: 10 }}
         transition={{ duration: 1 }}>
-        <div className={style.sectionHome__boxText}>
-          <div className={style.sectionHome__boxText__text}>
+        <div className={style.__sectionHome__boxText}>
+          <div className={style.__sectionHome__boxText__text}>
             <h2>Il territorio</h2>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur reiciendis voluptas quisquam beatae sed, cumque, dolorem, obcaecati iste maiores suscipit recusandae id ipsum quam? Maxime deleniti eum nesciunt beatae! Aspernatur. </p>
           </div>
@@ -101,7 +101,7 @@ export default function Home() {
 
       <motion.section
         ref={section2}
-        className={style.sectionHome}
+        className={style.__sectionHome}
         initial={{ opacity: 0, y: 10 }}
         animate={isInview2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
         exit={{ opacity: 0, y: 10 }}
@@ -109,8 +109,8 @@ export default function Home() {
       >
         <Image src={'/home-sezione-2.jpg'} width={845} height={608} alt='home sezione 1' />
 
-        <div className={style.sectionHome__boxText}>
-          <div className={style.sectionHome__boxText__text} >
+        <div className={style.__sectionHome__boxText}>
+          <div className={style.__sectionHome__boxText__text} >
             <h2>La tradizione</h2>
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur reiciendis voluptas quisquam beatae sed, cumque, dolorem, obcaecati iste maiores suscipit recusandae id ipsum quam? Maxime deleniti eum nesciunt beatae! Aspernatur. </p>
           </div>
@@ -118,6 +118,6 @@ export default function Home() {
 
 
       </motion.section>
-    </>
+    </div>
   )
 }

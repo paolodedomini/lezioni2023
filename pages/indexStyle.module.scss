@@ -1,4 +1,4 @@
-.sectionHome {
+.__sectionHome {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -21,8 +21,6 @@
       max-width: 800px;
     }
   }
-  img {
-  }
 }
 .sectionHomeDx {
   display: flex;
@@ -40,7 +38,5 @@
       line-height: 1.8rem;
       max-width: 800px;
     }
-  }
-  img {
   }
 }
