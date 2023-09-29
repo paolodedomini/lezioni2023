@@ -1,6 +1,7 @@
 import style from './style.module.scss'
 import Image from 'next/image'
-import Divisorio from '../../components/divisorio'
+import Divisorio from '../../../components/divisorio'
+
 const data = {
     nome: 'Fermata 125',
     anno: '2010',
@@ -18,7 +19,7 @@ const data = {
 
 function Prodotto() {
     return (
-        <div className={schedaProdotto}>
+        <div className={style.schedaProdotto}>
             <section className={style.__section1}>
                 <div className={style.__section1__container} >
                     <div className={style.__section1__container__boxSx}>
