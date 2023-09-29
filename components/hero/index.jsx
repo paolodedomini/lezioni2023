@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { boxWine, boxText, header, headerP } from './animations'
-
+import Link from 'next/link'
 const data = {
     titolo: 'Selezione autunnale',
     paragrafo: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard',
@@ -119,7 +119,7 @@ function Hero() {
                             exit="exit"
                             variants={boxWine(pos)}
                         >
-                            <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} />
+                            <Link href={`/prodotti/${data.prodotti[active].name}`}>  <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} /></Link>
                             <motion.div class={style.__heroInfo__boxWine__boxText}
                                 initial="hidden"
                                 animate="visible"
