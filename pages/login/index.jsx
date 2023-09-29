@@ -4,17 +4,14 @@ import { useState } from 'react'
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [login, setLogin] = useState(false)
+
     function handleSubmit(email, password) {
-
-
         if (email && password) {
             localStorage.setItem('email', email)
             localStorage.setItem('password', password)
             localStorage.setItem('login', true)
         }
         else { console.log('Please fill in all fields') }
-
 
     }
 
