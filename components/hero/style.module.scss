@@ -39,7 +39,8 @@
     align-items: center;
     position: relative;
     top: 236px;
-    img {
+    a {
+      position: relative;
       z-index: 51;
     }
     &__boxText {
