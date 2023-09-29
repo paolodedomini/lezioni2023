@@ -8,7 +8,7 @@
     width: 100%;
     margin: 0 auto;
     box-shadow: 0 0 10px rgba(192, 192, 192, 0.2);
-    padding: 2rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
 
@@ -16,14 +16,37 @@
       display: flex;
       flex-direction: column;
       margin-bottom: 2rem;
+      &--checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        label {
+          margin: 0 0 0 5px;
+          font-size: 0.9rem;
+        }
+      }
       label {
         font-size: 0.9rem;
         color: $grey;
       }
     }
-    button {
+    &__btnSignup {
+      font-size: 0.8rem;
+      width: 100px;
+      padding: 10px;
+      margin: 2rem 0 0 auto;
+    }
+    &__btnSignin {
       margin-top: 2rem;
       font-size: 1rem;
+      background-color: $purple;
+      color: white;
+    }
+    &__btnRegistrati {
+      margin-top: 2rem;
+      font-size: 1rem;
+      background-color: $purple;
+      color: white;
     }
   }
 }

@@ -4,6 +4,11 @@ import { useState } from 'react'
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [isRegistrationForm, setIsRegistrationForm] = useState(false)
+
+    function handleSubmintRegistration(email, password) {
+        console.log('registrazione!!!' + email + password)
+    }
 
     function handleSubmit(email, password) {
         if (email && password) {
@@ -33,7 +38,27 @@ function Login() {
                     <label htmlFor="password">Password</label>
                     <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" />
                 </div>
-                <button onClick={() => handleSubmit(email, password)}>Login</button>
+                {isRegistrationForm && <div className={style.login__box__formGroup}>
+                    <label htmlFor="confirmPass">Conferma password</label>
+                    <input type="input" name="confirmPass" id="confirmPass" />
+                </div>}
+
+
+                {isRegistrationForm ?
+                    <>
+                        <div className={style['login__box__formGroup--checkbox']}>
+                            <input type="checkbox" name="privacy" id="privacy" />
+                            <label htmlFor="privacy">Accetto tutteccose</label>
+                        </div>
+                        <button className={style.login__box__btnRegistrati} onClick={() => handleSubmintRegistration(email, password)}>Registrati</button>
+                    </> :
+                    <button className={style.login__box__btnSignin} onClick={() => handleSubmit(email, password)}>Login</button>}
+
+                <button onClick={() => setIsRegistrationForm((prev) => !prev)} className={style.login__box__btnSignup}>
+                    {
+                        isRegistrationForm ? 'Login' : 'Registrati'
+                    }
+                </button>
             </motion.div>
         </div>
     )
