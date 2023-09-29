@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { boxWine, boxText, header, headerP } from './animations'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 const data = {
     titolo: 'Selezione autunnale',
     paragrafo: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard',
@@ -43,7 +43,7 @@ const data = {
 function Hero() {
     const [active, setActive] = useState(-1)
     const [pos, setPos] = useState({})
-
+    const router = useRouter()
     useEffect(() => {
         if (active != -1) {
             document.body.style.overflow = 'hidden'
@@ -51,6 +51,11 @@ function Hero() {
             document.body.style.overflow = 'unset'
         }
     }, [active])
+
+    function handleClick(path) {
+        document.body.style.overflow = 'unset'
+        router.push(`/prodotti/${path}`)
+    }
 
     //se l'elemento è attivo carica la stessa immagine sul box informazioni nella posizione corretta e fa partire l'animazione
     const measuredRef = useCallback(node => {
@@ -119,7 +124,7 @@ function Hero() {
                             exit="exit"
                             variants={boxWine(pos)}
                         >
-                            <Link href={`/prodotti/${data.prodotti[active].name}`}>  <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} /></Link>
+                            <div className={style.__heroInfo__boxWine__link} onClick={() => handleClick(data.prodotti[active].name)}>  <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} /></div>
                             <motion.div class={style.__heroInfo__boxWine__boxText}
                                 initial="hidden"
                                 animate="visible"
@@ -141,7 +146,7 @@ function Hero() {
                                     exit="exit"
                                     variants={headerP}
                                 >
-                                    <hr />{data.prodotti[active]?.text}
+                                    {data.prodotti[active]?.text}
                                     <Image src="/ui/freccia.svg" alt="arrow" width={400} height={30} />
                                 </motion.p>
                             </motion.div>

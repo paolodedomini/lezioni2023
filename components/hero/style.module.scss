@@ -39,9 +39,10 @@
     align-items: center;
     position: relative;
     top: 236px;
-    a {
+    &__link {
       position: relative;
       z-index: 51;
+      cursor: pointer;
     }
     &__boxText {
       color: $autumn;
