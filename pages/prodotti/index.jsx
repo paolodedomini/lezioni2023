@@ -57,7 +57,7 @@ const data = {
 
 function Prodotti() {
     return (
-        <div className={style.container}>
+        <div className={style.prodotti}>
             <h1>Prodotti </h1>
             <GrigliaProdotti data={data} />
         </div>
