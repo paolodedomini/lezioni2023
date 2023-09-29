@@ -18,13 +18,13 @@ const data = {
 
 function Prodotto() {
     return (
-        <>
-            <section className={style.section1}>
-                <div className={style.section1__container} >
-                    <div className={style.section1__container__boxSx}>
+        <div className={schedaProdotto}>
+            <section className={style.__section1}>
+                <div className={style.__section1__container} >
+                    <div className={style.__section1__container__boxSx}>
                         <Image src={data.image} width={100} height={380} />
                     </div>
-                    <div className={style.section1__container__boxDx}>
+                    <div className={style.__section1__container__boxDx}>
                         <h1>
                             {data.nome}
                         </h1>
@@ -34,14 +34,14 @@ function Prodotto() {
                 </div>
             </section>
             <Divisorio size={150} />
-            <section className={style.section2} >
-                <div className={style.section2__container} >
+            <section className={style.__section2} >
+                <div className={style.__section2__container} >
                     <h2>Descrizione</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, provident minus. Nesciunt laboriosam sapiente ut in commodi maiores quo tempora animi reiciendis ea laudantium, ipsam velit. Quia porro sint repellat?</p>
 
                 </div>
-                <div className={style.section2__infoContainer} >
-                    <div className={style.section2__infoContainer__box}>
+                <div className={style.__section2__infoContainer} >
+                    <div className={style.__section2__infoContainer__box}>
                         <ul>
                             <li>
                                 <span>Classificazione: </span>
@@ -61,10 +61,10 @@ function Prodotto() {
                             </li>
                         </ul>
                     </div>
-                    <div className={style.section2__infoContainer__box}>
+                    <div className={style.__section2__infoContainer__box}>
                         <Image src={data.image} width={165} height={660}></Image>
                     </div>
-                    <div className={style.section2__infoContainer__box}>
+                    <div className={style.__section2__infoContainer__box}>
                         <ul>
                             <li>
                                 <span>Servire: </span>
@@ -78,7 +78,7 @@ function Prodotto() {
                     </div>
                 </div>
             </section>
-        </>
+        </div>
     )
 
 }
