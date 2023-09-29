@@ -18,6 +18,7 @@ const data = {
 }
 
 function Prodotto() {
+
     return (
         <div className={style.schedaProdotto}>
             <section className={style.__section1}>
