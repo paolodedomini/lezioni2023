@@ -7,14 +7,14 @@ function LayoutPage({ children }) {
     const router = useRouter()
     const { pathname } = router
     return (
-        <div className="layoutPage" id="laytop">
-            <ScrollerMotion>
-                <Navbar />
-                <main>
-                    {children}
-                </main>
-                <Footer />
-            </ScrollerMotion>
+        <div className="layoutPage" >
+
+            <Navbar />
+            <main>
+                {children}
+            </main>
+            <Footer />
+
         </div>
     )
 
