@@ -6,61 +6,11 @@ import GrigliaProdotti from '../components/grigliaProdotti'
 import style from './indexStyle.module.scss'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { GET } from '../utils/HTTPS'
 
-const data = {
-  prodotti: [
-    {
-      name: 'Fermata 125',
-      anno: '2010',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/fermata125.png',
-    },
-    {
-      name: 'Ferrero',
-      anno: '2011',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/ferrero.png',
-    },
-    {
-      name: 'Syrah',
-      anno: '2010',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/syrah.png',
-    },
-    {
-      name: 'Valpolicella',
-      anno: '1956',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/valpolicella.png',
-    },
-    {
-      name: 'Chianti Classico',
-      anno: '2010',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/fermata125.png',
-    },
-    {
-      name: 'Amarone',
-      anno: '2010',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/ferrero.png',
-    },
-    {
-      name: 'Merlot',
-      anno: '2010',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/syrah.png',
-    },
-    {
-      name: 'Appassimento',
-      anno: '2010',
-      path: '/prodotti/chianti-classico',
-      img: '/immagini-prodotto/valpolicella.png',
-    }
-  ]
-}
 
-export default function Home() {
+
+export default function Home({ hero, prodotti }) {
   const section1 = useRef(null)
   const section2 = useRef(null)
   const sectionGriglia = useRef(null)
@@ -70,7 +20,7 @@ export default function Home() {
 
   return (
     <div className={style.home}>
-      <Hero />
+      <Hero data={hero} />
       <Divisorio />
       <motion.section
         ref={sectionGriglia}
@@ -80,7 +30,7 @@ export default function Home() {
         exit={{ opacity: 0, y: 10 }}
         transition={{ delay: .3, duration: 1 }}
       >
-        <GrigliaProdotti data={data} titolo={'In evidenza'} />
+        <GrigliaProdotti prodotti={prodotti} titolo={'In evidenza'} />
       </motion.section>
       <motion.section ref={section1}
         className={style.__sectionHome}
@@ -120,4 +70,9 @@ export default function Home() {
       </motion.section>
     </div>
   )
+}
+export async function getServerSideProps() {
+  const hero = await GET('https://api.npoint.io/e1196a33a6420ecb773e')
+  const prodotti = await GET('https://api.npoint.io/f2fea3df1468a4daf95f')
+  return { props: { hero, prodotti } }
 }

@@ -4,43 +4,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { boxWine, boxText, header, headerP } from './animations'
 import { useRouter } from 'next/router'
-const data = {
-    titolo: 'Selezione autunnale',
-    paragrafo: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard',
-    background: '/immagini-prodotto/autumn.jpg',
-    prodotti: [
-        {
-            name: 'Fermata 125',
-            cantina: 'Cantina di Radda',
-            path: '/prodotti/chianti-classico',
-            img: '/immagini-prodotto/fermata125.png',
-            text: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.'
 
-        },
-        {
-            name: 'Ferrero',
-            cantina: 'Cantina di Radda',
-            path: '/prodotti/chianti-classico',
-            img: '/immagini-prodotto/ferrero.png',
-            text: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.'
-        },
-        {
-            name: 'Syrah',
-            cantina: 'Cantina di Radda',
-            path: '/prodotti/chianti-classico',
-            img: '/immagini-prodotto/syrah.png',
-            text: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.'
-        },
-        {
-            name: 'Valpolicella',
-            cantina: 'Cantina di Radda',
-            path: '/prodotti/chianti-classico',
-            img: '/immagini-prodotto/valpolicella.png',
-            text: 'Lorem Ipsum è un testo segnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.'
-        }
-    ]
-}
-function Hero() {
+function Hero({ data }) {
     const [active, setActive] = useState(-1)
     const [pos, setPos] = useState({})
     const router = useRouter()
