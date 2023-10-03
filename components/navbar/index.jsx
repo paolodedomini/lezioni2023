@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { RxMagnifyingGlass } from 'react-icons/rx'
 import Divisorio from '../divisorio'
 import router from 'next/router'
+import CartDrawer from './cartDrawer'
 
 const data = [
     { name: 'prodotti', path: '/prodotti' },
@@ -17,8 +18,6 @@ const data = [
 ]
 
 function SearchField() {
-    const [isSearchOpen, setIsSearchOpen] = useState(false)
-
 
 
     return (
@@ -35,6 +34,8 @@ function SearchField() {
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
+    const [isCartOpen, setIsCartOpen] = useState(false)
+
 
     function isInLocalStorage(login) {
         if (typeof window !== 'undefined') {
@@ -60,59 +61,61 @@ function Navbar() {
     }, [router.events]);
 
     return (
-        <>
-            <nav className={style.navBar}>
-                <div className={style.navBar__boxLogo}>
-                    <Link href="/">
-                        <Image src="/ui/logo.svg" alt="Luxwine Logo" width={180} height={40} />
-                    </Link>
+
+        <nav className={style.navBar}>
+            <div className={style.navBar__boxLogo}>
+                <Link href="/">
+                    <Image src="/ui/logo.svg" alt="Luxwine Logo" width={180} height={40} />
+                </Link>
+            </div>
+            <div className={style.navBar__userBox}>
+                <div onClick={() => setIsCartOpen(true)} className={style.navBar__userBox__cart} >
+                    <BsCart2 />
                 </div>
-                <div className={style.navBar__userBox}>
-                    <div className={style.navBar__userBox__cart} >
-                        <BsCart2 />
+            </div>
+            <div onClick={() => { setMenuOpen(!menuOpen) }} className={style.navBar__menuIcon}>
+                <RxHamburgerMenu />
+            </div>
+            <AnimatePresence>
+                {menuOpen && <motion.div
+                    className={style.navBar__mainNav}
+                    initial={{ opacity: 0, left: '50vw' }}
+                    animate={{ opacity: 1, left: 0 }}
+                    exit={{ opacity: 0, left: '50vw' }}
+                    transition={{ duration: .5, ease: 'easeInOut' }}
+                >
+                    <div onClick={() => { setMenuOpen(false) }} className={style.navBar__mainNav__closeBtn}>
+                        <RxCross1 />
                     </div>
-                </div>
-                <div onClick={() => { setMenuOpen(!menuOpen) }} className={style.navBar__menuIcon}>
-                    <RxHamburgerMenu />
-                </div>
-                <AnimatePresence>
-                    {menuOpen && <motion.div
-                        className={style.navBar__mainNav}
-                        initial={{ opacity: 0, left: '50vw' }}
-                        animate={{ opacity: 1, left: 0 }}
-                        exit={{ opacity: 0, left: '50vw' }}
-                        transition={{ duration: .5, ease: 'easeInOut' }}
-                    >
-                        <div onClick={() => { setMenuOpen(false) }} className={style.navBar__mainNav__closeBtn}>
-                            <RxCross1 />
-                        </div>
-                        <ul className={style.navBar__mainNav__navList}>
-                            {
-                                data.map((item, index) => {
-                                    if (isInLocalStorage('login') && item.name === 'login') {
-                                        return (<li className={style.navBar__mainNav__navList__listItem} key={index}>
-                                            <Link href={item.path}>Area utente</Link>
-                                        </li>)
-                                    } else {
-                                        return (
-                                            <li className={style.navBar__mainNav__navList__listItem} key={index}>
-                                                <Link href={item.path}>{item.name}</Link>
-                                            </li>
-                                        )
-                                    }
-                                })
-                            }
-                            <li>
-                                <Divisorio size={30} />
-                                <SearchField />
-                            </li>
-                        </ul>
+                    <ul className={style.navBar__mainNav__navList}>
+                        {
+                            data.map((item, index) => {
+                                if (isInLocalStorage('login') && item.name === 'login') {
+                                    return (<li className={style.navBar__mainNav__navList__listItem} key={index}>
+                                        <Link href={item.path}>Area utente</Link>
+                                    </li>)
+                                } else {
+                                    return (
+                                        <li className={style.navBar__mainNav__navList__listItem} key={index}>
+                                            <Link href={item.path}>{item.name}</Link>
+                                        </li>
+                                    )
+                                }
+                            })
+                        }
+                        <li>
+                            <Divisorio size={30} />
+                            <SearchField />
+                        </li>
+                    </ul>
 
-                    </motion.div>}
-                </AnimatePresence>
+                </motion.div>}
+            </AnimatePresence>
 
-            </nav >
-        </>
+            <CartDrawer isOpen={isCartOpen} setIsOpen={setIsCartOpen} />
+
+        </nav >
+
     )
 }
 export default Navbar
