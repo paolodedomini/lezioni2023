@@ -1,23 +1,15 @@
 import style from './style.module.scss'
 import Image from 'next/image'
 import Divisorio from '../../../components/divisorio'
+import { useRouter } from 'next/router'
+import { GET } from '../../../utils/HTTPS'
 
-const data = {
-    nome: 'Fermata 125',
-    anno: '2010',
-    classificazione: 'Chianti Classico',
-    formato: '750ml',
-    grado_alcolico: '13,5%',
-    vitigni: 'Sangiovese 90%, Canaiolo 10%',
-    servire: '18° C',
-    longevita: '10 anni',
-    bicchiere: 'Bicchiere ampio',
-    image: '/immagini-prodotto/fermata-big.png',
-    descrizione1: 'Il Moet & Chandon Dom Perignon Champagne Vintage è un brut millesimato, cuvée di prestigio della storica maison di Épernay Moet & Chandon, erede spirituale del monaco enologo dom Pierre Pérignon, cui si attribuisce affinamento della tecnica di produzione dello champagne nel XVII secolo presso antica Abbazia di Hautvillers. Questo prestigioso champagne AOC è un assemblaggio delle migliori uve grand cru dell azienda, selezionate nella singola annata, i vitigni Chardonnay e Pinot Nero, allevati sui terreni calcarei della regione francese Champagne-Ardenne',
-    descrizione2: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem architecto, cumque est eveniet non corrupti quia laboriosam ipsa tenetur odit tempore nam culpa, alias officiis id. Ab quam ducimus asperiores!',
-}
-
-function Prodotto() {
+function Prodotto({ prodotti }) {
+    const router = useRouter()
+    const sku = router.query.SKU
+    const data = prodotti.find((prodotto) => {
+        return prodotto.SKU === sku
+    })
 
     return (
         <div className={style.schedaProdotto}>
@@ -86,3 +78,7 @@ function Prodotto() {
 }
 
 export default Prodotto
+export async function getServerSideProps() {
+    const prodotti = await GET('https://api.npoint.io/f2fea3df1468a4daf95f')
+    return { props: { prodotti } }
+}
