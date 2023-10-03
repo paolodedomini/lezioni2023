@@ -17,12 +17,16 @@ function Hero({ data }) {
         }
     }, [active])
 
-    function handleClick(path) {
+    function handleClick(path, sku) {
         document.body.style.overflow = 'unset'
-        router.push(`/prodotti/${path}`)
+        router.push({
+            pathname: `/prodotti/${path}`,
+            query: { SKU: sku },
+        })
     }
 
     //se l'elemento è attivo carica la stessa immagine sul box informazioni nella posizione corretta e fa partire l'animazione
+
     const measuredRef = useCallback(node => {
         if (node !== null && active != -1) {
             const position = {
@@ -89,7 +93,7 @@ function Hero({ data }) {
                             exit="exit"
                             variants={boxWine(pos)}
                         >
-                            <div className={style.__heroInfo__boxWine__link} onClick={() => handleClick(data.prodotti[active].name)}>  <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} /></div>
+                            <div className={style.__heroInfo__boxWine__link} onClick={() => handleClick(data.prodotti[active].name, data.prodotti[active].SKU)}>  <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} /></div>
                             <motion.div class={style.__heroInfo__boxWine__boxText}
                                 initial="hidden"
                                 animate="visible"
