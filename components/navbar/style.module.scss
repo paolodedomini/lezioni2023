@@ -25,13 +25,14 @@
       padding-left: 1rem;
     }
   }
+
   &__boxLogo {
     flex: 1;
   }
   &__menuIcon {
     cursor: pointer;
     width: 30px;
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   &__mainNav {
     position: fixed;
@@ -66,6 +67,31 @@
       height: 50px;
       width: 50px;
       padding-top: 8px;
+    }
+  }
+  &__userBox {
+    display: flex;
+    font-size: 1.7rem;
+
+    justify-content: space-around;
+    top: -5px;
+    margin-right: 1rem;
+    color: #691f44;
+
+    align-items: center;
+    position: relative;
+    &__user {
+      cursor: pointer;
+      margin-right: 6px;
+    }
+    &__cart {
+      cursor: pointer;
+    }
+    &__login {
+      cursor: pointer;
+      a {
+        color: $purple;
+      }
     }
   }
 }
