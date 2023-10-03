@@ -1,22 +1,34 @@
 import style from './style.module.scss'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import router from 'next/router'
+
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [passwordConfirm, setPasswordConfirm] = useState('')
+    const [condizioni, setCondizioni] = useState(false)
     const [isRegistrationForm, setIsRegistrationForm] = useState(false)
 
     function handleSubmintRegistration(email, password) {
-        console.log('registrazione!!!' + email + password)
+        if (passwordConfirm !== password) { alert('Le password non coincidono'); }
+        else if (condizioni === false) { alert('Devi accettare le condizioni'); }
+        else {
+            localStorage.setItem('email', email)
+            localStorage.setItem('password', password)
+            setIsRegistrationForm(false)
+        }
+
     }
 
     function handleSubmit(email, password) {
-        if (email && password) {
-            localStorage.setItem('email', email)
-            localStorage.setItem('password', password)
+
+        if (email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
             localStorage.setItem('login', true)
+            router.push('/user')
+        } else {
+            alert('Credenziali errate')
         }
-        else { console.log('Please fill in all fields') }
 
     }
 
@@ -38,16 +50,17 @@ function Login() {
                     <label htmlFor="password">Password</label>
                     <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" id="password" />
                 </div>
+
                 {isRegistrationForm && <div className={style.login__box__formGroup}>
-                    <label htmlFor="confirmPass">Conferma password</label>
-                    <input type="input" name="confirmPass" id="confirmPass" />
+                    <label htmlFor="confirmPass" >Conferma password</label>
+                    <input onChange={(e) => setPasswordConfirm(e.target.value)} type="input" name="confirmPass" id="confirmPass" />
                 </div>}
 
 
                 {isRegistrationForm ?
                     <>
                         <div className={style['login__box__formGroup--checkbox']}>
-                            <input type="checkbox" name="privacy" id="privacy" />
+                            <input onChange={(e) => setCondizioni(e.target.value)} type="checkbox" name="privacy" id="privacy" />
                             <label htmlFor="privacy">Accetto tutteccose</label>
                         </div>
                         <button className={style.login__box__btnRegistrati} onClick={() => handleSubmintRegistration(email, password)}>Registrati</button>
