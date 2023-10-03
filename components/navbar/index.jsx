@@ -56,7 +56,7 @@ function Navbar() {
     }, [menuOpen])
 
     useEffect(() => {
-        router.events.on('routeChangeComplete', () => setMenuOpen(false))
+        router.events.on('routeChangeComplete', () => setMenuOpen(false));
     }, [router.events]);
 
     return (
@@ -72,7 +72,6 @@ function Navbar() {
                         <BsCart2 />
                     </div>
                 </div>
-
                 <div onClick={() => { setMenuOpen(!menuOpen) }} className={style.navBar__menuIcon}>
                     <RxHamburgerMenu />
                 </div>
