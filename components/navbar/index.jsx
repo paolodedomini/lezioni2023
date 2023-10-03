@@ -41,9 +41,13 @@ function Navbar() {
         if (typeof window !== 'undefined') {
             // Perform localStorage action
             const item = localStorage.getItem(login)
-            return true
+
+            if (item) {
+                return true
+            }
+            return false
         }
-        return false
+
     }
 
     useEffect(() => {
