@@ -11,9 +11,9 @@ function Hero({ data }) {
     const router = useRouter()
     useEffect(() => {
         if (active != -1) {
-            document.body.style.overflow = 'hidden'
+            document.body.style.overflowY = 'hidden'
         } else {
-            document.body.style.overflow = 'unset'
+            document.body.style.overflowY = 'unset'
         }
     }, [active])
 
@@ -94,7 +94,7 @@ function Hero({ data }) {
                             variants={boxWine(pos)}
                         >
                             <div className={style.__heroInfo__boxWine__link} onClick={() => handleClick(data.prodotti[active].name, data.prodotti[active].SKU)}>  <Image src={data.prodotti[active]?.img} alt={data.prodotti[active]?.name} width={115} height={460} /></div>
-                            <motion.div class={style.__heroInfo__boxWine__boxText}
+                            <motion.div className={style.__heroInfo__boxWine__boxText}
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
@@ -116,7 +116,8 @@ function Hero({ data }) {
                                     variants={headerP}
                                 >
                                     {data.prodotti[active]?.text}
-                                    <Image src="/ui/freccia.svg" alt="arrow" width={400} height={30} />
+                                    <div className={style.__heroInfo__boxWine__boxText__buttonFreccia} onClick={() => handleClick(data.prodotti[active].name, data.prodotti[active].SKU)}>
+                                        <Image src="/ui/freccia.svg" alt="arrow" width={400} height={30} /></div>
                                 </motion.p>
                             </motion.div>
                         </motion.div>
