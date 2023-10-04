@@ -2,6 +2,7 @@ import style from './style.module.scss'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+
 function GrigliaProdotti({ prodotti, titolo, num = -1 }) {
 
     const [filterProdotti, setFilterProdotti] = useState([])
