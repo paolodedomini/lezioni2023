@@ -19,7 +19,6 @@ const data = [
 
 function SearchField() {
 
-
     return (
         <div className={style.navBar__searchField}>
             <Link href={'/search'} className={style.navBar__searchField__button} >
@@ -35,7 +34,6 @@ function SearchField() {
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
     const [isCartOpen, setIsCartOpen] = useState(false)
-
 
     function isInLocalStorage(login) {
         if (typeof window !== 'undefined') {
@@ -86,7 +84,7 @@ function Navbar() {
                     initial={{ opacity: 0, left: '50vw' }}
                     animate={{ opacity: 1, left: 0 }}
                     exit={{ opacity: 0, left: '50vw' }}
-                    transition={{ duration: .5, ease: 'easeInOut' }}
+                    transition={{ duration: 1, ease: 'easeInOut' }}
                 >
                     <div onClick={() => { setMenuOpen(false) }} className={style.navBar__mainNav__closeBtn}>
                         <RxCross1 />
