@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Divisorio from '../../../components/divisorio'
 import { useRouter } from 'next/router'
 import { GET } from '../../../utils/HTTPS'
+import { motion, AnimatePresence } from 'framer-motion'
 
 function Prodotto({ prodotti }) {
     const router = useRouter()
