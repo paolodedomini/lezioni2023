@@ -4,13 +4,20 @@ import Divisorio from '../../../components/divisorio'
 import { useRouter } from 'next/router'
 import { GET } from '../../../utils/HTTPS'
 import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 function Prodotto({ prodotti }) {
     const router = useRouter()
-    const sku = router.query.SKU
+    const [SKU, setSku] = useState(router.query.SKU)
+
+    useEffect(() => {
+        if (router.query.SKU) {
+            setSku(router.query.SKU)
+        }
+    }, [router.query])
+
     const data = prodotti.find((prodotto) => {
-        return prodotto.SKU === sku
+        return prodotto.SKU === SKU
     })
 
     const section1 = useRef(null)
