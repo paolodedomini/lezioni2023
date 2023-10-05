@@ -57,13 +57,28 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        &__text {
-          text-align: center;
+        overflow: hidden;
+        &:hover {
           h3 {
             font-size: 2.2rem;
+            margin: 0;
+            transition: all 0.3s ease-in-out;
+          }
+          button {
+            top: 0px;
+
+            transition: all 0.3s ease-in-out;
+          }
+        }
+        &__text {
+          text-align: center;
+
+          h3 {
+            font-size: 3rem;
             font-family: "Bodoni Moda", serif;
             font-weight: 500;
-            margin: 0;
+            margin: 70px 0 0 0;
+            transition: all 0.3s ease-in-out;
           }
           span {
             font-family: "Poppins", sans-serif;
@@ -78,6 +93,9 @@
             font-family: "Bodoni Moda", serif;
             letter-spacing: 1px;
             text-transform: uppercase;
+            top: 30px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
           }
         }
       }
