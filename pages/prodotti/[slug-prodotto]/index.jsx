@@ -10,6 +10,9 @@ function Prodotto({ prodotti }) {
     const router = useRouter()
     const [SKU, setSku] = useState(router.query.SKU)
 
+
+    //useEffect per aggiornare lo SKU quando cambia il router.query (quando cambia la pagina) per evitare che l'animazione di uscita non venga eseguita
+
     useEffect(() => {
         if (router.query.SKU) {
             setSku(router.query.SKU)
@@ -106,7 +109,7 @@ function Prodotto({ prodotti }) {
 
                             <div className={style.__section2__infoContainer__box__acquista__text}>
                                 <h3>{data.prezzo}€</h3>
-                                <span>IVA inclusa</span>
+                                <span>*IVA inclusa</span>
                                 <button>Acquista</button>
                             </div>
                         </motion.div>
