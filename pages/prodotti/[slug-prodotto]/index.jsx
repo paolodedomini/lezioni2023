@@ -23,15 +23,20 @@ function Prodotto({ prodotti }) {
         return prodotto.SKU === SKU
     })
 
-    const btnAcquista = useRef(null)
+    const section1 = useRef(null)
     const section2 = useRef(null)
-    const isInviewBtnAcquista = useInView(btnAcquista, { once: false })
+    const isInview1 = useInView(section1, { once: false })
     const isInview2 = useInView(section2, { once: true })
 
     return (
         <div className={style.schedaProdotto}>
             <motion.section
                 className={style.__section1}
+                ref={section1}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInview1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                exit={{ opacity: 0, y: 10 }}
+                transition={{ duration: 1 }}
             >
                 <div className={style.__section1__container} >
                     <div className={style.__section1__container__boxSx}>
@@ -96,7 +101,7 @@ function Prodotto({ prodotti }) {
 
                         <motion.div
                             className={style.__section2__infoContainer__box__acquista}
-                            ref={btnAcquista}
+
 
                             animate={isInview2 ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
 
