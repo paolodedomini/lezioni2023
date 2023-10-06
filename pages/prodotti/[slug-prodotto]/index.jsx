@@ -25,18 +25,18 @@ function Prodotto({ prodotti }) {
 
     const section1 = useRef(null)
     const section2 = useRef(null)
-    const isInview1 = useInView(section1, { once: true })
+    const isInview1 = useInView(section1, { once: false })
     const isInview2 = useInView(section2, { once: true })
 
     return (
         <div className={style.schedaProdotto}>
             <motion.section
-                ref={section1}
                 className={style.__section1}
+                ref={section1}
                 initial={{ opacity: 0, y: 10 }}
                 animate={isInview1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
                 exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: .3, duration: 1 }}
+                transition={{ duration: 1 }}
             >
                 <div className={style.__section1__container} >
                     <div className={style.__section1__container__boxSx}>
@@ -101,10 +101,11 @@ function Prodotto({ prodotti }) {
 
                         <motion.div
                             className={style.__section2__infoContainer__box__acquista}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={isInview2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ delay: 1, duration: 1 }}
+
+
+                            animate={isInview2 ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
+
+                            transition={{ duration: 1, delay: 1 }}
                         >
 
                             <div className={style.__section2__infoContainer__box__acquista__text}>
