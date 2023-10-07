@@ -51,7 +51,7 @@ function Prodotto({ prodotti }) {
                     </div>
                 </div>
             </motion.section>
-            <Divisorio size={150} />
+            <Divisorio size={200} />
             <section className={style.__section2}>
                 <div className={style.__section2__container} >
                     <h2>Descrizione</h2>
