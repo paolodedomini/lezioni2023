@@ -13,6 +13,7 @@ function UserPage() {
                 <div className={style.userPage__container__acquisti} ></div>
                 <div className={style.userPage__container__dati} ></div>
                 <div className={style.userPage__container__logout} >
+                    <h1>Area Utente</h1>
                     <button onClick={() => logOut()} >Logout</button>
                 </div>
 
