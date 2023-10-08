@@ -2,14 +2,14 @@
 }
 
 .__section1 {
-  margin-top: 8rem;
+  margin-top: 6rem;
   &__container {
     display: flex;
     justify-content: center;
     align-items: center;
     &__boxDx {
       padding: 2rem;
-      max-width: 600px;
+      max-width: 500px;
       p {
         margin-top: 1rem;
         line-height: 1.8;
@@ -65,7 +65,7 @@
             margin: 0;
           }
           button {
-            top: 0px;
+            top: -10px;
           }
         }
         &__text {
