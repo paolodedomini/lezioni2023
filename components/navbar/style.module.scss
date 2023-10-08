@@ -55,6 +55,9 @@
       justify-content: center;
       &__listItem {
         margin: 1rem 0;
+        &--userLink.link {
+          color: $red;
+        }
       }
     }
     &__closeBtn {

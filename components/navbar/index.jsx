@@ -93,12 +93,12 @@ function Navbar() {
                         {
                             data.map((item, index) => {
                                 if (isInLocalStorage('login') && item.name === 'login') {
-                                    return (<li className={style.navBar__mainNav__navList__listItem} key={index}>
-                                        <Link href="/user">Area utente</Link>
+                                    return (<li className={style["navBar__mainNav__navList__listItem"]} key={index}>
+                                        <Link className={`${style["navBar__mainNav__navList__listItem--userLink"]} ${style.link}`} href="/user">Area utente</Link>
                                     </li>)
                                 } else {
                                     return (
-                                        <li className={style.navBar__mainNav__navList__listItem} key={index}>
+                                        <li className={style["navBar__mainNav__navList__listItem"]} key={index}>
                                             <Link href={item.path}>{item.name}</Link>
                                         </li>
                                     )
