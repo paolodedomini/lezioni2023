@@ -35,8 +35,8 @@ function GrigliaProdotti({ prodotti, titolo, num = -1 }) {
                                         pathname: `/prodotti/${prodotto.nome}`,
                                         query: { SKU: prodotto.SKU }
 
-                                    }}>    {prodotto.image ? <Image src={prodotto.image} alt={prodotto.name} width={80} height={320} /> :
-                                        <Image src={'/ui/bottiglia-default.png'} alt={prodotto.name} width={80} height={320} />}
+                                    }}>    {prodotto.image ? <Image src={prodotto.image} alt={prodotto.nome} width={80} height={320} /> :
+                                        <Image src={'/ui/bottiglia-default.png'} alt={prodotto.nome} width={80} height={320} />}
                                 </Link>
                             </div>
                             <div className={style.__containerLoop__box__text}>

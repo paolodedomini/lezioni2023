@@ -53,7 +53,7 @@ function Hero({ data }) {
                             return (
                                 <div onClick={() => { setActive(index) }} className={style.__heroContainer__heroBox} key={index}>
                                     <div className={style.__heroContainer__heroBox__image} >
-                                        <Image src={item.img} alt={item.name} layout="fill" objectFit="cover" />
+                                        <Image src={item.img} alt={item.name} fill sizes='100%' />
                                     </div>
                                 </div>
                             )
