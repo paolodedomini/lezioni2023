@@ -26,7 +26,7 @@ function Prodotto({ prodotti }) {
     const section1 = useRef(null)
     const section2 = useRef(null)
     const isInview1 = useInView(section1, { once: false })
-    const isInview2 = useInView(section2, { once: true })
+    const isInview2 = useInView(section2, { once: false })
 
     return (
         <div className={style.schedaProdotto}>
@@ -62,7 +62,10 @@ function Prodotto({ prodotti }) {
                     ref={section2}
                     className={style.__section2__infoContainer}
                     initial={{ opacity: 0, y: 10 }}
-                    animate={isInview2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                    animate={isInview2 ?
+                        { opacity: 1, y: 0 } :
+                        { opacity: 0, y: 10, }
+                    }
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ delay: .3, duration: 1 }}
                 >
@@ -97,24 +100,19 @@ function Prodotto({ prodotti }) {
                     <div className={style.__section2__infoContainer__box}>
                         <Image src={data.image} width={165} height={660}></Image>
                     </div>
-                    <div className={style.__section2__infoContainer__box}>
+                    <motion.div className={style.__section2__infoContainer__box}
+                        animate={isInview2 ? { opacity: 1, y: 0, transition: { delay: .5 } } : { opacity: 0, y: 10 }}>
 
-                        <motion.div
-                            className={style.__section2__infoContainer__box__acquista}
-
-
-                            animate={isInview2 ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
-
-                            transition={{ duration: 1, delay: 1 }}
-                        >
+                        <div
+                            className={style.__section2__infoContainer__box__acquista}>
 
                             <div className={style.__section2__infoContainer__box__acquista__text}>
                                 <h3>{data.prezzo}€</h3>
                                 <span>*IVA inclusa</span>
                                 <button>Acquista</button>
                             </div>
-                        </motion.div>
-                    </div>
+                        </div>
+                    </motion.div>
                 </motion.div>
             </section>
         </div>
