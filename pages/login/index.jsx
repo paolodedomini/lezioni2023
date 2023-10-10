@@ -2,7 +2,7 @@ import style from './style.module.scss'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import router from 'next/router'
-
+import toast from 'react-hot-toast'
 function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -11,13 +11,15 @@ function Login() {
     const [isRegistrationForm, setIsRegistrationForm] = useState(false)
 
     function handleSubmintRegistration(email, password) {
-        if (passwordConfirm !== password) { alert('Le password non coincidono'); }
-        else if (condizioni === false) { alert('Devi accettare le condizioni'); }
+        if (passwordConfirm !== password) { toast('Le password non coincidono'); }
+        else if (condizioni === false) { toast('Devi accettare le condizioni'); }
         else {
             localStorage.setItem('email', email)
             localStorage.setItem('password', password)
             setIsRegistrationForm(false)
+            toast('Registrazione avvenuta con successo')
         }
+
 
     }
 
@@ -26,8 +28,9 @@ function Login() {
         if (email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
             localStorage.setItem('login', true)
             router.push('/user')
+            toast('Login avvenuto con successo')
         } else {
-            alert('Credenziali errate')
+            toast('Credenziali errate')
         }
 
     }
