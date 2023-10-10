@@ -40,7 +40,7 @@ function Prodotto({ prodotti }) {
             >
                 <div className={style.__section1__container} >
                     <div className={style.__section1__container__boxSx}>
-                        <Image src={data.image} width={100} height={380} />
+                        <Image src={data.image} width={100} height={380} alt={data.nome} />
                     </div>
                     <div className={style.__section1__container__boxDx}>
                         <h1>
@@ -98,7 +98,7 @@ function Prodotto({ prodotti }) {
                         </ul>
                     </div>
                     <div className={style.__section2__infoContainer__box}>
-                        <Image src={data.image} width={165} height={660}></Image>
+                        <Image src={data.image} width={165} height={660} alt={data.nome}></Image>
                     </div>
                     <motion.div className={style.__section2__infoContainer__box}
                         animate={isInview2 ? { opacity: 1, y: 0, transition: { delay: .5 } } : { opacity: 0, y: 10 }}>
