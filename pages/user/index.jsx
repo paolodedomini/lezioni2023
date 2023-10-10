@@ -6,6 +6,9 @@ function UserPage() {
         localStorage.removeItem('login')
         router.push('/')
     }
+    function goToStore() {
+        router.push('/')
+    }
 
     return (
         <div className={style.userPage}>
@@ -38,7 +41,7 @@ function UserPage() {
                 <div className={style.userPage__container__dati} ></div>
                 <div className={style.userPage__container__ui} >
 
-                    <button onClick={() => logOut()} >Vai allo store</button>
+                    <button onClick={() => goToStore()} >Vai allo store</button>
                     <button onClick={() => logOut()} >Logout</button>
 
                 </div>
