@@ -13,6 +13,13 @@
     font-size: 1.5rem;
   }
   &__container {
+    &__ui {
+      display: flex;
+      display: flex;
+      justify-content: space-between;
+      max-width: 390px;
+      margin: 0 auto;
+    }
     &__acquisti {
       margin: 2rem 0;
       > ul > li {

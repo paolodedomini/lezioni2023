@@ -36,9 +36,11 @@ function UserPage() {
                     </ul>
                 </div>
                 <div className={style.userPage__container__dati} ></div>
-                <div className={style.userPage__container__logout} >
+                <div className={style.userPage__container__ui} >
 
+                    <button onClick={() => logOut()} >Vai allo store</button>
                     <button onClick={() => logOut()} >Logout</button>
+
                 </div>
 
             </div>
