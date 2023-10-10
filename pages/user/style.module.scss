@@ -6,4 +6,25 @@
   h1 {
     text-align: center;
   }
+  h3 {
+    font-family: "Playfair Display", serif;
+    color: $purple;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+  }
+  &__container {
+    &__acquisti {
+      margin: 2rem 0;
+      > ul > li {
+        display: flex;
+        font-family: "Poppins";
+        justify-content: center;
+        justify-content: space-between;
+        max-width: 360px;
+        margin: 0rem auto;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgb(208, 208, 208);
+      }
+    }
+  }
 }
