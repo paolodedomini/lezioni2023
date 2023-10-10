@@ -3,12 +3,15 @@ import Image from 'next/image'
 import Divisorio from '../../../components/divisorio'
 import { useRouter } from 'next/router'
 import { GET } from '../../../utils/HTTPS'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
 function Prodotto({ prodotti }) {
     const router = useRouter()
     const [SKU, setSku] = useState(router.query.SKU)
+    const { scrollYProgress } = useScroll()
+    const opacityBtn = useTransform(scrollYProgress, [0.6, 1], [0, 1])
+    const y = useTransform(scrollYProgress, [0.6, 1], [150, 0])
 
 
     //useEffect per aggiornare lo SKU quando cambia il router.query (quando cambia la pagina) per evitare che l'animazione di uscita non venga eseguita
@@ -69,7 +72,8 @@ function Prodotto({ prodotti }) {
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ delay: .3, duration: 1 }}
                 >
-                    <div className={style.__section2__infoContainer__box}>
+                    <motion.div className={style.__section2__infoContainer__box}
+                        style={{ opacity: opacityBtn, y: y }}>
                         <ul>
                             <li>
                                 <span>Classificazione: </span>
@@ -96,12 +100,13 @@ function Prodotto({ prodotti }) {
                                 <span>{data.longevita}</span>
                             </li>
                         </ul>
-                    </div>
+                    </motion.div>
                     <div className={style.__section2__infoContainer__box}>
                         <Image src={data.image} width={165} height={660} alt={data.nome}></Image>
                     </div>
                     <motion.div className={style.__section2__infoContainer__box}
-                        animate={isInview2 ? { opacity: 1, y: 0, transition: { delay: .5 } } : { opacity: 0, y: 10 }}>
+                        style={{ opacity: opacityBtn, y: y }}
+                    >
 
                         <div
                             className={style.__section2__infoContainer__box__acquista}>
