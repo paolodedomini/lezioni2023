@@ -10,8 +10,8 @@ function Prodotto({ prodotti }) {
     const router = useRouter()
     const [SKU, setSku] = useState(router.query.SKU)
     const { scrollYProgress } = useScroll()
-    const opacityBtn = useTransform(scrollYProgress, [0.6, 1], [0, 1])
-    const y = useTransform(scrollYProgress, [0.6, 1], [150, 0])
+    const opacityBtn = useTransform(scrollYProgress, [0.6, .8], [0, 1])
+    const y = useTransform(scrollYProgress, [0.5, .8], [200, 0])
 
 
     //useEffect per aggiornare lo SKU quando cambia il router.query (quando cambia la pagina) per evitare che l'animazione di uscita non venga eseguita
