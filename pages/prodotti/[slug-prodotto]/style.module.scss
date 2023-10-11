@@ -10,6 +10,10 @@
     &__boxDx {
       padding: 2rem;
       max-width: 500px;
+      h2 {
+        line-height: 0.5;
+        font-size: 1.5rem;
+      }
       p {
         margin-top: 1rem;
         line-height: 1.8;
