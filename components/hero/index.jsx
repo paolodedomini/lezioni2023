@@ -1,7 +1,7 @@
 import style from './style.module.scss'
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion'
 import { boxWine, boxText, header, headerP } from './animations'
 import { useRouter } from 'next/router'
 
@@ -9,6 +9,14 @@ function Hero({ data }) {
     const [active, setActive] = useState(-1)
     const [pos, setPos] = useState({})
     const router = useRouter()
+    const { scrollYProgress } = useScroll()
+
+    function animateBottle(stagger) {
+        const y = useTransform(scrollYProgress, [0, 0.3], [0, -100 * stagger])
+        return y
+    }
+
+
     useEffect(() => {
         if (active != -1) {
             document.body.style.overflowY = 'hidden'
@@ -44,18 +52,31 @@ function Hero({ data }) {
                 initial={{ opacity: 0, }}
                 animate={{ opacity: 1, }}
                 exit={{ opacity: 0, }}
-                transition={{ duration: 1, ease: 'easeInOut' }}
+                transition={{
+                    duration: 1,
+                    ease: 'easeInOut',
+                }}
             >
                 <div className={style.__heroContainer}
                     ref={measuredRef}>
                     {
                         data.prodotti.map((item, index) => {
                             return (
-                                <div onClick={() => { setActive(index) }} className={style.__heroContainer__heroBox} key={index}>
+                                <motion.div
+                                    onClick={() => { setActive(index) }}
+                                    className={style.__heroContainer__heroBox}
+                                    style={{ y: animateBottle(4 - index) }}
+                                    key={index}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: 10 }}
+                                    transition={{ delay: .4 * index, duration: 1 }}
+
+                                >
                                     <div className={style.__heroContainer__heroBox__image} >
                                         <Image src={item.img} alt={item.name} fill sizes='100%' />
                                     </div>
-                                </div>
+                                </motion.div>
                             )
                         })
                     }
