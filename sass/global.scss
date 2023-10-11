@@ -5,7 +5,7 @@ html {
 }
 html,
 body {
-  overscroll-behavior: none;
+  scrollbar-gutter: stable;
 }
 a,
 a:visited,

@@ -16,12 +16,11 @@ function Hero({ data }) {
         return y
     }
 
-
     useEffect(() => {
         if (active != -1) {
             document.body.style.overflowY = 'hidden'
         } else {
-            document.body.style.overflowY = 'unset'
+            document.body.style.overflowY = 'overlay'
         }
     }, [active])
 
@@ -71,7 +70,6 @@ function Hero({ data }) {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ delay: .4 * index, duration: 1 }}
-
                                 >
                                     <div className={style.__heroContainer__heroBox__image} >
                                         <Image src={item.img} alt={item.name} fill sizes='100%' />
@@ -80,7 +78,6 @@ function Hero({ data }) {
                             )
                         })
                     }
-
                 </div >
                 <div className={style.__mainContent}>
                     <motion.h2
